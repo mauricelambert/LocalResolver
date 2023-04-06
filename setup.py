@@ -2,35 +2,44 @@ from setuptools import setup, find_packages
 
 setup(
     name = 'LocalResolver',
- 
-    version = "0.0.1",
-    packages = find_packages(include=["LocalResolver"]),
+    version = "0.0.2",
+    py_modules=["LocalResolver"],
     install_requires = ['scapy'],
-
     author = "Maurice Lambert", 
     author_email = "mauricelambert434@gmail.com",
- 
-    description = "This package implement netbios and LLMNR query tool in python and HostnameResolver command line tool.",
+    maintainer="Maurice Lambert",
+    maintainer_email="mauricelambert434@gmail.com",
+    description = "This package implements local hostname resolver tool with scapy (using netbios and LLMNR query).",
     long_description = open('README.md').read(),
     long_description_content_type="text/markdown",
- 
-    include_package_data = True,
-
     url = 'https://github.com/mauricelambert/LocalResolver',
- 
+    project_urls={
+        "Executable": "https://mauricelambert.github.io/info/python/code/LocalResolver.pyz",
+        "Documentation": "https://mauricelambert.github.io/info/python/code/LocalResolver.html",
+    },
     classifiers = [
-        "Programming Language :: Python",
-        "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
         "Natural Language :: English",
-        "Operating System :: OS Independent",
-        "Programming Language :: Python :: 3.8"
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3.9",
+        "Operating System :: MacOS",
+        "Operating System :: POSIX :: Linux",
+        "Operating System :: Microsoft :: Windows",
+        "Development Status :: 5 - Production/Stable",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     ],
- 
     entry_points = {
         'console_scripts': [
             'HostnameResolver = LocalResolver:resolve'
         ],
     },
-    python_requires='>=3.6',
+    python_requires='>=3.8',
+    keywords=[
+        "Resolve",
+        "Hostname",
+        "LLMNR",
+        "Netbios",
+    ],
+    platforms=["Windows", "Linux", "MacOS"],
+    license="GPL-3.0 License",
 )

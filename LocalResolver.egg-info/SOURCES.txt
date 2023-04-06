@@ -1,10 +1,8 @@
 LICENSE.txt
 MANIFEST.in
 README.md
+setup.cfg
 setup.py
-LocalResolver/NetbiosResolver.py
-LocalResolver/__init__.py
-LocalResolver/__main__.py
 LocalResolver.egg-info/PKG-INFO
 LocalResolver.egg-info/SOURCES.txt
 LocalResolver.egg-info/dependency_links.txt
