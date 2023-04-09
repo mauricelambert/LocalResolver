@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: LocalResolver
-Version: 0.0.2
+Version: 0.0.3
 Summary: This package implements local hostname resolver tool with scapy (using netbios and LLMNR query).
 Home-page: https://github.com/mauricelambert/LocalResolver
 Author: Maurice Lambert
