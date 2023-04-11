@@ -10,7 +10,7 @@ This tool is useful to:
  - reverse lookup local IP addresses
  - resolve manually hostnames/IP from Linux or hardened Windows
  - resolve hostname with old machines (Windows 2000-2012)
- - to identify:
+ - identify:
      - Machines with old protocols like Netbios or LLMNR,
      - Hostname spoofer (or two machines with the same name),
 
