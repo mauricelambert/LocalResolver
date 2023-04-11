@@ -13,6 +13,7 @@ This package require:
  - python3
  - python3 Standard Library
  - Scapy
+ - PythonToolsKit
 
 ## Installation
 
@@ -25,19 +26,22 @@ pip install LocalResolver
 ### Command lines
 
 ```bash
-HostnameResolver -h
-HostnameResolver 192.168.1.2
-HostnameResolver 192.168.1.3,192.168.1.2,WIN10,HOMEPC,example.com
+LocalResolver -h
+LocalResolver --retry 5 --timeout 5 --interval 2 192.168.1.2   # very long
+LocalResolver 192.168.1.3 192.168.1.2 WIN10 HOMEPC test.local
+LocalResolver --no-netbios --no-dns fe80::3317:f73e:2166:bbd8/64
+LocalResolver --no-llmnr --no-mdns fe80::3317:f73e:2166:bbd8/64
 ```
 
 ### Python3
 
 ```python
-from LocalResolver import LocalResolver
+from LocalResolver import LocalResolver, resolve_local_name, resolve_local_ip
 
-localResolver = LocalResolver("192.168.1.45", timeout=3)
-hostname = localResolver.resolve_NBTNS()
-hostname = localResolver.resolve_LLMNR()
+[r.hostname for r in resolve_local_ip("192.168.5.2")]
+[r.ip for r in resolve_local_ip("192.168.5.2", retry=2, inter=1, timeout=3, netbios=True, llmnr=True, mdns=True, dns=True)]
+[(r.ip, r.source) for r in resolve_local_name("WIN10")]
+[(r.ip, r.source) for r in resolve_local_name("HOMEPC", retry=2, inter=1, timeout=3, netbios=True, llmnr=True, mdns=True, dns=True)]
 ```
 
 ## Links

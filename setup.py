@@ -1,23 +1,23 @@
 from setuptools import setup, find_packages
 
 setup(
-    name = 'LocalResolver',
-    version = "0.0.3",
+    name="LocalResolver",
+    version="1.0.0",
     py_modules=["LocalResolver"],
-    install_requires = ['scapy'],
-    author = "Maurice Lambert", 
-    author_email = "mauricelambert434@gmail.com",
+    install_requires=["scapy", "PythonToolsKit"],
+    author="Maurice Lambert",
+    author_email="mauricelambert434@gmail.com",
     maintainer="Maurice Lambert",
     maintainer_email="mauricelambert434@gmail.com",
-    description = "This package implements local hostname resolver tool with scapy (using netbios and LLMNR query).",
-    long_description = open('README.md').read(),
+    description="This package implements local hostname resolver tool with scapy.",
+    long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url = 'https://github.com/mauricelambert/LocalResolver',
+    url="https://github.com/mauricelambert/LocalResolver",
     project_urls={
         "Executable": "https://mauricelambert.github.io/info/python/code/LocalResolver.pyz",
         "Documentation": "https://mauricelambert.github.io/info/python/code/LocalResolver.html",
     },
-    classifiers = [
+    classifiers=[
         "Environment :: Console",
         "Natural Language :: English",
         "Programming Language :: Python",
@@ -28,12 +28,10 @@ setup(
         "Development Status :: 5 - Production/Stable",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     ],
-    entry_points = {
-        'console_scripts': [
-            'HostnameResolver = LocalResolver:resolve'
-        ],
+    entry_points={
+        "console_scripts": ["LocalResolver = LocalResolver:main"],
     },
-    python_requires='>=3.8',
+    python_requires=">=3.8",
     keywords=[
         "Resolve",
         "Hostname",
