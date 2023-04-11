@@ -6,6 +6,10 @@
 
 This package implements local hostname resolver tool with scapy (using netbios and LLMNR query).
 
+This tool is useful to resolve hostname with old machines (Windows 2000-2012) and to identify:
+ - Machines with old protocols like Netbios or LLMNR,
+ - Hostname spoofer (or two machines with the same name),
+
 ## Requirements
 
 This package require: 
