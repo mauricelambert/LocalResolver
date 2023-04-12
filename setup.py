@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="LocalResolver",
-    version="1.0.0",
+    version="1.0.1",
     py_modules=["LocalResolver"],
     install_requires=["scapy", "PythonToolsKit"],
     author="Maurice Lambert",

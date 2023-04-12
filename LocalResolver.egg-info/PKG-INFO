@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: LocalResolver
-Version: 1.0.0
+Version: 1.0.1
 Summary: This package implements local hostname resolver tool with scapy.
 Home-page: https://github.com/mauricelambert/LocalResolver
 Author: Maurice Lambert
@@ -34,6 +34,14 @@ License-File: LICENSE.txt
 ## Description
 
 This package implements local hostname resolver tool with scapy (using netbios and LLMNR query).
+
+This tool is useful to:
+ - reverse lookup local IP addresses
+ - resolve manually hostnames/IP from Linux or hardened Windows
+ - resolve hostname with old machines (Windows 2000-2012)
+ - identify:
+     - Machines with old protocols like Netbios or LLMNR,
+     - Hostname spoofer (or two machines with the same name),
 
 ## Requirements
 

@@ -45,7 +45,7 @@ LLMNR=yes
 ~# 
 """
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 __author__ = "Maurice Lambert"
 __author_email__ = "mauricelambert434@gmail.com"
 __maintainer__ = "Maurice Lambert"
@@ -117,8 +117,6 @@ from collections import defaultdict
 from dataclasses import dataclass
 from argparse import Namespace
 from os import name
-
-is_windows: bool = name == "nt"
 
 
 def netbios_encode(name: str) -> str:
@@ -252,40 +250,20 @@ class LocalResolver:
             lambda: defaultdict(lambda: lambda *x, **y: None)
         )
 
-    if is_windows:
+    def sniff(self) -> None:
+        """
+        This function starts sniffer.
+        """
 
-        def sniff(self) -> None:
-            """
-            This function starts sniffer.
-            """
-
-            for iface, _ in self.my_ips.values():
-                sniffer = AsyncSniffer(
-                    filter=(
-                        "proto UDP and (port 137 or port 5355"
-                        " or port 5353 or port 53)"
-                    ),
-                    timeout=self.timeout,
-                    prn=self.redirect,
-                    iface=iface,  # all interfaces
-                )
-                sniffer.start()
-
-    else:
-
-        def sniff(self) -> None:
-            """
-            This function starts sniffer.
-            """
-
-            sniffer = self.sniffer = AsyncSniffer(
+        for iface, _ in self.my_ips.values():
+            sniffer = AsyncSniffer(
                 filter=(
                     "proto UDP and (port 137 or port 5355"
                     " or port 5353 or port 53)"
                 ),
                 timeout=self.timeout,
                 prn=self.redirect,
-                iface=None,  # all interfaces
+                iface=iface,  # all interfaces
             )
             sniffer.start()
 

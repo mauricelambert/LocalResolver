@@ -2,6 +2,7 @@ LICENSE.txt
 LocalResolver.py
 MANIFEST.in
 README.md
+setup.cfg
 setup.py
 LocalResolver.egg-info/PKG-INFO
 LocalResolver.egg-info/SOURCES.txt
